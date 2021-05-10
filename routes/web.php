@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\NotificacionesMailable;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,10 @@ Route::get('notificacion', function () {
 
     return 'mensaje enviado';
     
+});
+
+Route::get('storage-link', function(){
+    Artisan::call('storage:link');    
 });
 
 
