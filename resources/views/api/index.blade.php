@@ -32,7 +32,7 @@
                       <th scope="col">Atributos</th>
                     </tr>
                   </thead>
-                  {{-- <tbody>
+                  <tbody>
                       @php
                           $p = $listado[0];                          
                       @endphp
@@ -159,16 +159,16 @@
                       </div>
                           
                       @endfor
-                  </tbody> --}}
+                  </tbody>
 
-                  <tbody>
+                  {{-- <tbody>
                     <tr>
                       <th>{{ $heroes->name }}</th>
-                      {{-- @foreach ($heroes->biography as $bio) --}}
+                      
                         <th>{{ $heroes->biography->alignment }}</th>                          
-                      {{-- @endforeach --}}
+                      
                     </tr>
-                  </tbody>
+                  </tbody> --}}
 
                 </table>
               </div>

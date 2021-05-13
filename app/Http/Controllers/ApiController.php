@@ -15,35 +15,35 @@ class ApiController extends Controller
      */
     public function index()
     {
-        // random_int(1,731);
+        random_int(1,731);
 
-        // $listado = [];
+        $listado = [];
 
-        // for($i=0; $i<5; $i++)
-        // {
-        //     $id=random_int(1,731);
-        //     $usuarios = HTTP::get('https://superheroapi.com/api/5569076549831897/'.$id);
-        //     $heroes = $usuarios->json();
+        for($i=0; $i<5; $i++)
+        {
+            $id=random_int(1,731);
+            $usuarios = HTTP::get('https://superheroapi.com/api/5569076549831897/'.$id);
+            $heroes = $usuarios->json();
 
-        //     $response = 
+            $response = 
 
-        //     array_push($listado,$heroes);
+            array_push($listado,$heroes);
 
-        // }
+        }
 
         // dd($listado);
 
-        $client = new Client();
-        $url = "https://superheroapi.com/api/5569076549831897/7";        
+        // $client = new Client();
+        // $url = "https://superheroapi.com/api/5569076549831897/7";        
 
-        $response = $client->request('GET',$url);        
+        // $response = $client->request('GET',$url);        
 
-        $heroes = json_decode($response->getBody());
+        // $heroes = json_decode($response->getBody());
 
          //dd($heroes);
 
 
-        return view('api.index',compact('heroes'));
+        return view('api.index',compact('listado'));
     }
 
     /**
