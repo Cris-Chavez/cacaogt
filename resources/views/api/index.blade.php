@@ -32,7 +32,7 @@
                       <th scope="col">Atributos</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  {{-- <tbody>
                       @php
                           $p = $listado[0];                          
                       @endphp
@@ -54,7 +54,7 @@
                             </th>
                         </tr>
 
-                        {{--Modal Poderes--}}
+                      <!-- poderes -->
                       <div class="modal fade" id="powerModal{{ $p["id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -79,7 +79,7 @@
                         </div>
                       </div>
 
-                      {{--Modal Biografía--}}
+                      <!-- biografia -->
                       <div class="modal fade" id="biographyModal{{ $p["id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -104,7 +104,7 @@
                         </div>
                       </div>
 
-                      {{--Modal Apariencia--}}
+                      <!-- apariencia -->
                       <div class="modal fade" id="appearanceModal{{ $p["id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -133,7 +133,7 @@
                         </div>
                       </div>
 
-                      {{--Modal Imagen--}}
+                      <!-- imagen -->
                       <div class="modal fade" id="imageModal{{ $p["id"] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                           <div class="modal-content">
@@ -159,7 +159,17 @@
                       </div>
                           
                       @endfor
+                  </tbody> --}}
+
+                  <tbody>
+                    <tr>
+                      <th>{{ $heroes->name }}</th>
+                      {{-- @foreach ($heroes->biography as $bio) --}}
+                        <th>{{ $heroes->biography->alignment }}</th>                          
+                      {{-- @endforeach --}}
+                    </tr>
                   </tbody>
+
                 </table>
               </div>
 
