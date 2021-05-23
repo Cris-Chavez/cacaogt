@@ -23,6 +23,15 @@
             <form action="{{ route('empresa.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
+                  <div class="cold-md-6">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <img id="imagePreview" width="150" height="150" src="{{ asset('storage\logos\no-imagen.png') }}" style="border: 1px solid" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="nombre" class="form-control-label">Nombres de la empresa</label>                
@@ -60,9 +69,8 @@
                       @error('direccion')
                         <strong class="text-red">{{ $message }}</strong>                          
                       @enderror
-                    </div>
-                    
-                  </div>
+                    </div>                    
+                  </div>  
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="direccion" class="form-control-label">Logo</label>
@@ -70,10 +78,10 @@
                       @error('logo')
                         <strong class="text-red">{{ $message }}</strong>                          
                       @enderror
-                    </div>
-                    
-                  </div>
-                </div>{{--row--}}           
+                    </div> 
+                  </div>                
+                </div>{{--row--}}              
+                
                 <button type="submit" class="btn btn-success">Agregar</button>
               </form>
 
@@ -110,4 +118,24 @@
     </footer>
   </div>
     
+@endsection
+
+@section('script')
+<script>
+  function readImage (input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          $('#imagePreview').attr('src', e.target.result); // Renderizamos la imagen
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+    $("#logo").change(function () {
+      // Código a ejecutar cuando se detecta un cambio de archivO
+      readImage(this);    
+    });
+</script>
+  
 @endsection

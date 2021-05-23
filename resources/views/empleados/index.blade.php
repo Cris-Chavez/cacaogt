@@ -1,9 +1,23 @@
 @extends('home')
 
-@section('css')
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css"> --}}
+{{-- @section('css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">    
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css">
+@endsection --}}
+
+@section('css')
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">        
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"> 
+    <link href="https//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" >
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap4.min.css">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />        
+
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">        
+    <link href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css"> 
+    <link href="https//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" >
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.bootstrap4.min.css">     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 @endsection
 
 @section('content')
@@ -28,7 +42,7 @@
 
             <div class="table-responsive">
                 <!-- Projects table -->
-                <table class="table align-items-center table-flush" id="empleados">
+                <table class="table align-items-center table-flush" id="myTable">
                   <thead class="thead-light">
                     <tr>
                       <th scope="col">Nombre</th>
@@ -118,7 +132,7 @@
     
 @endsection
 
-@section('script')
+{{-- @section('script')
   <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>   
   <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script> 
@@ -143,4 +157,82 @@
             });
         } );
     </script>
+@endsection --}}
+
+@section('script')
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script> 
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script>
+
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.bootstrap4.min.js"></script>         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>    
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.colVis.min.js"></script> --}}
+
+    
+
+
+{{-- funcion DataTable --}}
+<script>      
+    $('#myTable').DataTable({
+      responsive: true,
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ datos por página",
+                "zeroRecords": "Nada encontrado - Disculpa",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "No existen datos",
+                "infoFiltered": "(Filtrado de un total de _MAX_ datos totales)",
+                "search": "Buscar:",
+                "paginate":{
+                    next : ">",
+                    previous: "<"
+                }
+            },
+            dom: '<"row"<"col-sm-12 col-md-4"l><"col-md-4 text-center"B><"col-md-4 text-right"f>>t<"row"<"col-sm-12 col-md-6"i><"col-sm-12 col-md-6"p>>',
+            buttons: [
+                {
+                    extend: "excel",
+                    text: '<i class="far fa-file-excel"></i>',
+                    className: "btn-success btn-sm mr-1",
+                    exportOptions:{
+                        columns: [0,1,2,3,4]
+                    }
+                },
+                {
+                    extend: "pdf",
+                    text: '<i class="far fa-file-pdf"></i>',
+                    className: "btn-danger btn-sm mr-1",
+                    exportOptions:{
+                        columns: [0,1,2,3,4]
+                    },
+                    messageTop: 'Información de los empleados',
+                    title: "Exportación a PDF"
+                },           
+                {
+                    extend: "print",
+                    text: '<i class="fas fa-paint-brush"></i>',
+                    className: "btn-info btn-sm",
+                    exportOptions:{
+                        columns: [0,1,2,3,4]
+                    }
+                }
+            ]
+      
+    });
+</script>    
 @endsection

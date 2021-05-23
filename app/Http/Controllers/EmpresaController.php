@@ -7,6 +7,8 @@ use App\Models\Empresa;
 use App\Http\Requests\StoreEmpresa;
 use Illuminate\Support\Facades\Storage;
 
+use str;
+
 class EmpresaController extends Controller
 {
     /**
@@ -41,7 +43,7 @@ class EmpresaController extends Controller
     public function store(StoreEmpresa $request)
     {
         $empresa = new Empresa();
-
+        
         $imagen = $request->File('logo')->store('public/logos');
         $logo = Storage::url($imagen);
 
