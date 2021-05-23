@@ -26,7 +26,7 @@
                   <div class="cold-md-6">
                     <div class="col-md-4">
                       <div class="form-group">
-                        <img id="imagePreview" width="150" height="150" src="{{ asset('storage\logos\no-imagen.png') }}" style="border: 1px solid" />
+                        <img id="imagePreview" width="150" height="150" style="border: 1px solid" />
                       </div>
                     </div>
                   </div>
